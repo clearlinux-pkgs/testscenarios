@@ -6,7 +6,7 @@
 #
 Name     : testscenarios
 Version  : 0.5.0
-Release  : 24
+Release  : 25
 URL      : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source99 : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz.asc
@@ -17,6 +17,7 @@ Requires: testscenarios-python3
 Requires: testscenarios-python
 Requires: pbr
 Requires: testtools
+BuildRequires : Babel-legacypython
 BuildRequires : extras
 BuildRequires : pbr
 BuildRequires : pip
@@ -32,6 +33,15 @@ BuildRequires : traceback2
 *****************************************************************
 testscenarios: extensions to python unittest to support scenarios
 *****************************************************************
+
+%package legacypython
+Summary: legacypython components for the testscenarios package.
+Group: Default
+Requires: python-core
+
+%description legacypython
+legacypython components for the testscenarios package.
+
 
 %package python
 Summary: python components for the testscenarios package.
@@ -59,18 +69,25 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519050297
+export SOURCE_DATE_EPOCH=1519050875
+python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
+export SOURCE_DATE_EPOCH=1519050875
 rm -rf %{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files legacypython
+%defattr(-,root,root,-)
+/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
