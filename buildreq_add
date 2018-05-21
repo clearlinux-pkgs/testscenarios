@@ -6,3 +6,5 @@ testtools
 traceback2
 extras
 Babel-legacypython
+pbr-legacypython
+pytz-legacypython

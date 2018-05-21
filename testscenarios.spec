@@ -6,7 +6,7 @@
 #
 Name     : testscenarios
 Version  : 0.5.0
-Release  : 28
+Release  : 29
 URL      : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source99 : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz.asc
@@ -20,11 +20,13 @@ Requires: testtools
 BuildRequires : Babel-legacypython
 BuildRequires : extras
 BuildRequires : pbr
+BuildRequires : pbr-legacypython
 BuildRequires : pip
 BuildRequires : py
 BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : python3-dev
+BuildRequires : pytz-legacypython
 BuildRequires : setuptools
 BuildRequires : testtools
 BuildRequires : traceback2
@@ -69,12 +71,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519050875
+export SOURCE_DATE_EPOCH=1526933017
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1519050875
+export SOURCE_DATE_EPOCH=1526933017
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
