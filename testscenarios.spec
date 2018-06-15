@@ -24,7 +24,7 @@ BuildRequires : pbr-legacypython
 BuildRequires : pip
 BuildRequires : py
 BuildRequires : pytest
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : pytz-legacypython
 BuildRequires : setuptools
