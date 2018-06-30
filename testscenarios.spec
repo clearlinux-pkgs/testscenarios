@@ -6,7 +6,7 @@
 #
 Name     : testscenarios
 Version  : 0.5.0
-Release  : 33
+Release  : 34
 URL      : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source99 : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz.asc
@@ -90,12 +90,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530369493
+export SOURCE_DATE_EPOCH=1530377751
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1530369493
+export SOURCE_DATE_EPOCH=1530377751
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/testscenarios
 cp Apache-2.0 %{buildroot}/usr/share/doc/testscenarios/Apache-2.0
