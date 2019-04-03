@@ -7,4 +7,4 @@ traceback2
 extras
 deprecated-Babel-legacypython
 pbr-legacypython
-pytz-legacypython
+deprecated-pytz-legacypython

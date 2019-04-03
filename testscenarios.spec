@@ -6,7 +6,7 @@
 #
 Name     : testscenarios
 Version  : 0.5.0
-Release  : 42
+Release  : 43
 URL      : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source99 : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz.asc
@@ -18,15 +18,14 @@ Requires: testscenarios-python = %{version}-%{release}
 Requires: testscenarios-python3 = %{version}-%{release}
 Requires: pbr
 Requires: testtools
-BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
 BuildRequires : deprecated-Babel-legacypython
+BuildRequires : deprecated-pytz-legacypython
 BuildRequires : extras
 BuildRequires : pbr
 BuildRequires : pbr-legacypython
 BuildRequires : py
 BuildRequires : pytest
-BuildRequires : pytz-legacypython
 BuildRequires : testtools
 BuildRequires : traceback2
 
@@ -34,15 +33,6 @@ BuildRequires : traceback2
 *****************************************************************
 testscenarios: extensions to python unittest to support scenarios
 *****************************************************************
-
-%package legacypython
-Summary: legacypython components for the testscenarios package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the testscenarios package.
-
 
 %package license
 Summary: license components for the testscenarios package.
@@ -78,28 +68,23 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554308774
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554329164
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1554308774
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/testscenarios
 cp Apache-2.0 %{buildroot}/usr/share/package-licenses/testscenarios/Apache-2.0
 cp COPYING %{buildroot}/usr/share/package-licenses/testscenarios/COPYING
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files license
 %defattr(0644,root,root,0755)
