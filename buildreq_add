@@ -5,6 +5,6 @@ py
 testtools
 traceback2
 extras
-Babel-legacypython
+deprecated-Babel-legacypython
 pbr-legacypython
 pytz-legacypython
