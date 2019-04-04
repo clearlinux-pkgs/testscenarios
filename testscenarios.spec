@@ -6,7 +6,7 @@
 #
 Name     : testscenarios
 Version  : 0.5.0
-Release  : 43
+Release  : 44
 URL      : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source99 : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz.asc
@@ -19,11 +19,8 @@ Requires: testscenarios-python3 = %{version}-%{release}
 Requires: pbr
 Requires: testtools
 BuildRequires : buildreq-distutils3
-BuildRequires : deprecated-Babel-legacypython
-BuildRequires : deprecated-pytz-legacypython
 BuildRequires : extras
 BuildRequires : pbr
-BuildRequires : pbr-legacypython
 BuildRequires : py
 BuildRequires : pytest
 BuildRequires : testtools
@@ -68,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554329164
+export SOURCE_DATE_EPOCH=1554340817
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
