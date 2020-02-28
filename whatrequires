@@ -1,6 +1,5 @@
 # This file contains recursive sources that require this package
-cssselect
-gabbi
+dns-lexicon
 subunit
 testrepository
 unicodedata2
