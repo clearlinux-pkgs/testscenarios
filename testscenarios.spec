@@ -6,7 +6,7 @@
 #
 Name     : testscenarios
 Version  : 0.5.0
-Release  : 56
+Release  : 57
 URL      : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz
 Source1  : https://pypi.python.org/packages/source/t/testscenarios/testscenarios-0.5.0.tar.gz.asc
